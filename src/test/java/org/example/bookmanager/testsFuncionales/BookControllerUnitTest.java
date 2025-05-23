@@ -1,4 +1,4 @@
-package org.example.bookmanager;
+package org.example.bookmanager.testsFuncionales;
 
 import org.example.bookmanager.controller.BookController;
 import org.example.bookmanager.model.Book;
@@ -24,10 +24,10 @@ public class BookControllerUnitTest {
     @Test
     public void testSaveBook() {
         Book libro = new Book();
-        libro.setTitle("El Principito");
-        libro.setAuthor("Saint-Exupéry");
-        libro.setGenre("Ficción");
-        libro.setYear(1943);
+        libro.setTitle("El Gamincito");
+        libro.setAuthor("Samuel-Exupéry");
+        libro.setGenre("Terror");
+        libro.setYear(20022);
 
         bookController.saveBook(libro);
 
