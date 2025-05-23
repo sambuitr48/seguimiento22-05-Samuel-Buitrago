@@ -1,4 +1,4 @@
-package org.example.bookmanager;
+package org.example.bookmanager.testsFuncionales;
 
 import org.example.bookmanager.model.Book;
 import org.example.bookmanager.repository.BookRepository;
@@ -28,7 +28,7 @@ public class BookIntegrationTest {
                         .param("title", "Frankestein")
                         .param("author", "Samuel Buitrago Osorio")
                         .param("genre", "Romance")
-                        .param("year", "700 AC"))
+                        .param("year", "700"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/books"));
 

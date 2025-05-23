@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b2e46;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .btn-add {
+            background-color: #1b2e46;
+            color: white;
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-add:hover {
+            background-color: #2c3e5c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #1b2e46;
+            color: white;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #be2621;
+            font-weight: bold;
+        }
+
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Libros</h1>
+    <div class="top-bar">
+        <a class="btn-add" th:href="@{/books/new}">+ Agregar Libro</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Año</th>
+            <th>Género</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}">Título</td>
+            <td th:text="${book.author}">Autor</td>
+            <td th:text="${book.year}">Año</td>
+            <td th:text="${book.genre}">Género</td>
+            <td class="actions">
+                <a th:href="@{/books/edit/{id}(id=${book.id})}">Editar</a>
+                <a th:href="@{/books/delete/{id}(id=${book.id})}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
